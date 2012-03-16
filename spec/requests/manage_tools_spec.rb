@@ -62,7 +62,8 @@ describe 'Tool' do
       it 'should list new tool on the newsfeed' do
         visit newsfeed_path
 
-        page.should have_content "created tool Test Tool"
+        page.should have_content "added tool"
+        page.should have_content "Test Tool"
       end
     end
   end
