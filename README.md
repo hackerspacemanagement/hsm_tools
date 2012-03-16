@@ -13,7 +13,7 @@ gem 'hsm_tools', :source => "https://github.com/rrix/hsm_tools"
 ```
 
 Run:
-```@shell
+```@ruby
 $ bundle
 $ rails g hsm_tools:install
 $ rake db:migrate
