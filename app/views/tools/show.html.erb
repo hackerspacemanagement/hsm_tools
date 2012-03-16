@@ -1,0 +1,21 @@
+<div class="hero-unit"%>
+  <%= image_tag 'logo.png', :class => 'pull-right' %>
+  <h1><%= @tool.name %></h1>
+
+  <div class='span6'>
+  <% if @tool.picture %>
+    <p><%= image_tag @tool.picture.url(:medium) %></p>
+  <%end%>
+    <p>Name:&nbsp;<b><%= @tool.name %></b></p>
+    <p>Owner:&nbsp;<b><%= @tool.user.full_name if @tool.user %></b></p>
+    <p>Serial Number:&nbsp;<b><%= @tool.serial_id %></b></p>
+    <p>Location:&nbsp;<b><%= @tool.location %></b></p>
+    <p>Category:&nbsp;<b><%= @tool.tool_category ? @tool.tool_category.name : "None" %></b></p>
+    <%= link_to "Edit me!", edit_tool_path(@tool.id), :class => 'btn' %>
+  </div>
+  <div class='span10'>
+    <p>
+      <%= raw(BlueCloth.new(@tool.description).to_html) %>
+    </p>
+  </div>
+</div>

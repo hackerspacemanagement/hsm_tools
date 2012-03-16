@@ -1,0 +1,15 @@
+<%= form_for @category do |c| %>
+  <% if @redirect_to %>
+    <%= hidden_field_tag 'redirect', @redirect_to %>
+  <% end %>
+  <p>
+    <%= c.label "Name: " %>&nbsp;
+    <%= c.text_field :name %>
+  </p>
+  <p>
+    <%= c.label "Description: " %>&nbsp;
+    <%= c.text_field :description %>
+  </p>
+
+  <%= c.submit %>
+<% end %>

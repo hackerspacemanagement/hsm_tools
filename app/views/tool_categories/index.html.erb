@@ -1,0 +1,24 @@
+<div class="hero-unit">
+  <%= image_tag 'logo.png', :class => "pull-right" %>
+  <h1>Tool Categories</h1>
+  <p><%= link_to "Add a tool category", :controller => "tool_categories", :action => "new" %></p>
+
+  <table>
+    <thead>
+      <td><%= sort_link "Name", :name %></td>
+      <td><%= sort_link "Description", :description %></td>
+      <td>Actions</td>
+    </thead>
+    <tbody>
+      <tr>
+      <% @categories.each do |c| %>
+        <tr>
+          <td><%= c.name %></td>
+          <td><%= c.description %></td>
+          <td><%= link_to "Edit", tool_category_path(c), :class => 'btn' %></td>
+        </tr>
+      <% end %>
+      </tr>
+    </tbody>
+  </table>
+</div>

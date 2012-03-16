@@ -1,0 +1,58 @@
+<div class="hero-unit">
+  <%= image_tag 'logo.png', :class => 'pull-right' %>
+
+  <% if !@user %>
+    <h1>Tools</h1>
+  <% else %>
+    <h1><%= @user.full_name + "'s Tools" %></h1>
+  <% end %>
+
+  <p><%= link_to "Add a tool", :controller => "tools", :action => "new" %></p>
+
+  <table>
+    <thead>
+      <td style="width:15%">Picture</td>
+      <td style="width:20%"><%= sort_link "Category", :category %></td>
+      <td><%= sort_link "Name", :name %></td>
+      <td><%= sort_link "Serial #", :serial_id %></td>
+      <% if !@user %>
+        <td><%= sort_link "Owner", :user_id %></td>
+      <% end %>
+      <td style="width:15%">Actions</td>
+    </thead>
+    <tbody>
+      <% @tools.each do |tool| %>
+        <tr>
+          <% if tool.picture %>
+            <td><%= image_tag tool.picture.url(:thumb) %></td>
+          <% else %>
+            <td>&nbsp;</td>
+          <% end %>
+          <% if !tool.tool_category.nil? %>
+            <td><%= link_to tool.tool_category.name, tools_path(:category=>tool.tool_category.id) %></td>
+          <% else %>
+            <td>&nbsp;</td>
+          <% end %>
+          <td><%= tool.name %></td>
+          <td><%= tool.serial_id %></td>
+          <% if !@user %>
+            <% if !tool.user.nil? %>
+              <td><%= link_to tool.user.full_name, tools_path(:id => tool.user.id) %></td>
+            <% else %>
+              <td>&nbsp;</td>
+            <% end %>
+          <% end %>
+          <td>
+            <div class="btn">
+              <%= link_to 'Show', tool_path(tool) %>
+            </div>
+            <div class="btn">
+              <%= link_to 'Edit', edit_tool_path(tool) %>
+            </div>
+          </td>
+        </tr>
+      <% end%>
+    </tbody>
+  </table>
+  <%= will_paginate @tools %>
+</div>

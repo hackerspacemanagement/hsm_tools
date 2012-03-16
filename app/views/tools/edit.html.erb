@@ -1,0 +1,12 @@
+<div class="hero-unit"%>
+  <%= image_tag 'logo.png', :class => 'pull-right' %>
+  <h1>Edit a Tool</h1>
+
+  <%= render 'form' %>
+  
+  <%= link_to "Delete this tool", tool_path, 
+                                  :method => :delete, 
+                                  :class => 'btn', 
+                                  :confirm => "Are you sure?" 
+                                 %>
+</div>

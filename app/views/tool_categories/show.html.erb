@@ -1,0 +1,10 @@
+<div class="hero-unit">
+  <%= image_tag 'logo.png', :class => 'pull-right' %>
+  <h1>Tool Category</h1>
+  <p>Name:&nbsp;<%= @c.name %></p>
+  <p>Description:&nbsp;<%= @c.description %></p>
+  <p><%= link_to "Delete", tool_category_path(@c), 
+                           :method  => :delete, 
+                           :confirm => "Are you sure you want to delete this category?",
+                           :class   => 'btn' %></p>
+</div>
