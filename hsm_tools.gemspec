@@ -7,11 +7,11 @@ require "hsm_tools/version"
 Gem::Specification.new do |s|
   s.name        = "hsm_tools"
   s.version     = HsmTools::VERSION
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of HsmTools."
-  s.description = "TODO: Description of HsmTools."
+  s.authors     = ["Ryan Rix"]
+  s.email       = ["ry@n.rix.si"]
+  s.homepage    = "https://github.com/hackerspacemanagement"
+  s.summary     = "This plugin adds tool management to Hackerspace Management"
+  s.description = ""
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
   s.test_files = Dir["test/**/*"]
